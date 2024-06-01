@@ -53,12 +53,12 @@ services:
   php:
     build:
       context: ./dockerfiles
-      dockerfile: php.dockerfile
+      dockerfile: php.root.dockerfile
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
     ports:
-      - "9000:9000"
+      - "9090:9000"
     volumes:
       - ./src:/var/www/html:delegated
     networks:
