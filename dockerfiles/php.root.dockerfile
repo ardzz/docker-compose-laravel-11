@@ -1,6 +1,6 @@
 FROM php:8.3-fpm-alpine
 
-RUN apt update && apt install -y libicu-dev
+RUN apk add icu-dev
 
 RUN mkdir -p /var/www/html
 
