@@ -1,6 +1,6 @@
 FROM php:8.3-fpm-alpine
 
-RUN apk add icu-dev libzip-dev
+RUN apk add icu-dev libzip-dev oniguruma-dev
 
 RUN mkdir -p /var/www/html
 
