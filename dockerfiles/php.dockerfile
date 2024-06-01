@@ -6,6 +6,8 @@ ARG GID
 ENV UID=${UID}
 ENV GID=${GID}
 
+RUN apk add icu-dev libzip-dev oniguruma-dev
+
 RUN mkdir -p /var/www/html
 
 WORKDIR /var/www/html
@@ -22,7 +24,7 @@ RUN sed -i "s/user = www-data/user = laravel/g" /usr/local/etc/php-fpm.d/www.con
 RUN sed -i "s/group = www-data/group = laravel/g" /usr/local/etc/php-fpm.d/www.conf
 RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
-RUN docker-php-ext-install pdo pdo_mysql intl zip 
+RUN docker-php-ext-install pdo pdo_mysql intl zip exif mbstring
 
 RUN mkdir -p /usr/src/php/ext/redis \
     && curl -L https://github.com/phpredis/phpredis/archive/5.3.4.tar.gz | tar xvz -C /usr/src/php/ext/redis --strip 1 \

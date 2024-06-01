@@ -1,6 +1,8 @@
 FROM php:8.3-fpm-alpine
 
-RUN docker-php-ext-install pdo pdo_mysql
+RUN apk add icu-dev libzip-dev oniguruma-dev
+
+RUN docker-php-ext-install pdo pdo_mysql intl zip exif mbstring
 
 RUN apk update && apk add --no-cache supervisor
 
