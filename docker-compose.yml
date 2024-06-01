@@ -21,6 +21,7 @@ services:
       - redis
       - mysql
       - mailhog
+      - supervisor
     networks:
       - laravel
 
