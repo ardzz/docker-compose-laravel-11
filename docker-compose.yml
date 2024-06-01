@@ -24,6 +24,16 @@ services:
     networks:
       - laravel
 
+  supervisor:
+    build:
+      context: ./dockerfiles
+      dockerfile: supervisor.dockerfile
+    container_name: supervisor
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - laravel
+
   mysql:
     image: mariadb:10.6
     restart: unless-stopped
