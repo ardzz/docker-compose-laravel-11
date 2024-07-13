@@ -10,12 +10,10 @@ RUN apk add icu-dev libzip-dev oniguruma-dev
 
 RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev && \
   docker-php-ext-configure gd \
-    --with-gd \
     --with-freetype=/usr/include/ \
-    --with-png=/usr/include/ \
     --with-jpeg=/usr/include/ && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
-  docker-php-ext-install -j${NPROC} gd && \
+  docker-php-ext-install -j${NPROC} gd
 
 RUN mkdir -p /var/www/html
 
