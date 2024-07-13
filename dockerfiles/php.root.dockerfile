@@ -7,7 +7,7 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
     --with-freetype=/usr/include/ \
     --with-jpeg=/usr/include/ && \
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
-  docker-php-ext-install -j${NPROC} gd && \
+  docker-php-ext-install -j${NPROC} gd
 
 RUN mkdir -p /var/www/html
 
