@@ -30,7 +30,6 @@ services:
     build:
       context: ./dockerfiles
       dockerfile: supervisor.dockerfile
-    container_name: supervisor
     volumes:
       - ./src:/var/www/html
     networks:
